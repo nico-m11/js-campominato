@@ -1,8 +1,8 @@
 var numUtente = [];
-var bigBang = [];
+var bomba = genRandom(1,100);
 
 
-function genRandom(1,100) {
+function genRandom(min,max) {
   return (Math.floor(Math.random() * max) + min);
 }
 
