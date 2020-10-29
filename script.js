@@ -7,11 +7,12 @@ function checkArray(numero,arraynumero) {
   return false;
 }
 
+
 // definisco delle variabili costanti
 var randomNum = 16;
 var minNum = 1;
 var maxNum = 100;
-var partite = 84;
+var partite = 5;
 
 // quanto fatto in precedenza, ho deciso di cambiare strada scegliendo la modalità osservata dall'Instructor Flavio
 
@@ -46,24 +47,46 @@ console.log (bombe);
 
 //creamo la vittoria o la perdita dell'utente
 var win = false;
-var presobomba = true;
+var presobomba = false;
 var userscelte = [];
 
-while (!win && presobomba) {
-  var attualuserscelta = parseInt(prompt('Inserisci un numero tra 1 e 100'));
 
 
+
+while (!win && !presobomba) {
+  var attualuserscelta = parseInt(prompt('inserisci un numero da 1 a 100'));
   if (checkArray(attualuserscelta, userscelte)) {
-    alert('hai già inserito questo numero!');
-  } else if (bomba, attualuserscelta) {
-      presobomba = false;
-    } else if (userscelte === partite) {
-      win = true;
+    alert('hai già inserito questo numero');
+  } else {
+    if (checkArray(attualuserscelta, bombe)) {
+      presobomba = true;
+    }else{
+      userscelte.push(attualuserscelta);
+      if(userscelte.length == partite){
+        win = true;
+      }
+
     }
+  }
 }
 
-
-console.log(attualuserscelta);
 console.log(win);
 console.log(presobomba);
 console.log(userscelte);
+
+// punteggio
+
+
+
+// definisco le due variabili, cioè il messaggio della vittorio/sconfitta ed i tentativi il quale l'utente inserisce
+var messaggioEl = document.getElementById('messaggio');
+var tentativiEl = document.getElementById('tentativi');
+
+if (win) {
+
+    console.log("vinto");
+  messaggioEl.innerHTML = 'HAI VINTO';
+} else if(presobomba){
+  console.log("bomba");
+  messaggioEl.innerHTML = 'HAI PERSO :(';
+}
