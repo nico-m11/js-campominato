@@ -42,3 +42,28 @@ while (bombe.length < 16) {
 }
 
 console.log (bombe);
+
+
+//creamo la vittoria o la perdita dell'utente
+var win = false;
+var presobomba = true;
+var userscelte = [];
+
+while (!win && presobomba) {
+  var attualuserscelta = parseInt(prompt('Inserisci un numero tra 1 e 100'));
+
+
+  if (checkArray(attualuserscelta, userscelte)) {
+    alert('hai già inserito questo numero!');
+  } else if (bomba, attualuserscelta) {
+      presobomba = false;
+    } else if (userscelte === partite) {
+      win = true;
+    }
+}
+
+
+console.log(attualuserscelta);
+console.log(win);
+console.log(presobomba);
+console.log(userscelte);
