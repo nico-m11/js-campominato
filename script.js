@@ -1,3 +1,12 @@
+function checkArray(numero,arraynumero) {
+  for (var i = 0; i < arraynumero.length; i++) {
+    if (numero === arraynumero[i]) {
+      return true;
+    }
+  }
+  return false;
+}
+
 // definisco delle variabili costanti
 var randomNum = 16;
 var minNum = 1;
@@ -24,10 +33,10 @@ var partite = 84;
 
 var bombe = [];
 
-while (bombe < 16) {
-  var numeroRandom = Math.floor(Math.random() * ((maxNum) - minNum) + minNum);
+while (bombe.length < 16) {
+  var numeroRandom = Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum;
 
-  if (array(numeroRandom,bombe)) {
+  if (!checkArray(numeroRandom,bombe)) {
      bombe.push(numeroRandom);
   }
 }
