@@ -6,13 +6,28 @@ function checkArray(numero,arraynumero) {
   }
   return false;
 }
-
-
 // definisco delle variabili costanti
 var randomNum = 16;
 var minNum = 1;
 var maxNum = 100;
-var partite = 5;
+var partite = 84;
+
+// casi di difficoltà #bonus
+
+var difficolta = parseInt(prompt('inserici il liverllo di diffioltà, tra 0,1,2'));
+switch (difficolta) {
+  case 0:
+    maxNum = 100;
+    break;
+  case 1:
+    maxNum = 80;
+    break;
+  case 2:
+    maxNum = 50;
+    break;
+
+  }
+
 
 // quanto fatto in precedenza, ho deciso di cambiare strada scegliendo la modalità osservata dall'Instructor Flavio
 
@@ -54,7 +69,7 @@ var userscelte = [];
 
 
 while (!win && !presobomba) {
-  var attualuserscelta = parseInt(prompt('inserisci un numero da 1 a 100'));
+  var attualuserscelta = parseInt(prompt('inserisci un numero da' + minNum + 'a' + maxNum));
   if (checkArray(attualuserscelta, userscelte)) {
     alert('hai già inserito questo numero');
   } else {
@@ -65,7 +80,6 @@ while (!win && !presobomba) {
       if(userscelte.length == partite){
         win = true;
       }
-
     }
   }
 }
