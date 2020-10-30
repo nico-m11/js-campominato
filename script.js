@@ -77,7 +77,8 @@ while (!win && !presobomba) {
     if (checkArray(attualuserscelta, bombe)) {
       presobomba = true;
     }else{
-      punti += userscelte.push(attualuserscelta);
+       userscelte.push(attualuserscelta);
+       punti++;
       if(userscelte.length == partite){
         win = true;
       }
@@ -98,8 +99,7 @@ var messaggioEl = document.getElementById('messaggio');
 var tentativiEl = document.getElementById('tentativi');
 
 if (win) {
-
-    console.log("vinto");
+  console.log("vinto");
   messaggioEl.innerHTML = 'HAI VINTO';
   tentativiEl.innerHTML = punti;
 } else if(presobomba){
