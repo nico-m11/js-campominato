@@ -11,6 +11,7 @@ var randomNum = 16;
 var minNum = 1;
 var maxNum = 100;
 var partite = 84;
+var punti = 0;
 
 // casi di difficoltà #bonus
 
@@ -31,19 +32,19 @@ switch (difficolta) {
 
 // quanto fatto in precedenza, ho deciso di cambiare strada scegliendo la modalità osservata dall'Instructor Flavio
 
-//function genRandom(min,max) {
-//  return (Math.floor(Math.random() * max) + min);
-//}
+function genRandom(min,max) {
+  return (Math.floor(Math.random() * max) + min);
+}
 
-//function validNumber(array,element) {
-//  var valid = false;
-//  for (var i = 0; i < array.length; i++) {
-//    if (array == element) {
-//      valid = true;
-//    }
-//  }
-//  return valid;
-//}
+function validNumber(array,element) {
+  var valid = false;
+  for (var i = 0; i < array.length; i++) {
+    if (array == element) {
+      valid = true;
+    }
+  }
+  return valid;
+}
 
 // genero un random di numeri in un array quali saranno rappresentati dalle bombe
 
@@ -76,7 +77,7 @@ while (!win && !presobomba) {
     if (checkArray(attualuserscelta, bombe)) {
       presobomba = true;
     }else{
-      userscelte.push(attualuserscelta);
+      punti += userscelte.push(attualuserscelta);
       if(userscelte.length == partite){
         win = true;
       }
@@ -100,7 +101,9 @@ if (win) {
 
     console.log("vinto");
   messaggioEl.innerHTML = 'HAI VINTO';
+  tentativiEl.innerHTML = punti;
 } else if(presobomba){
   console.log("bomba");
   messaggioEl.innerHTML = 'HAI PERSO :(';
+  tentativiEl.innerHTML = punti;
 }
